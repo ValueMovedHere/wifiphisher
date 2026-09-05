@@ -53,12 +53,3 @@ pub struct StationRecord {
     #[serde(rename = "Probed ESSIDs")]
     pub probed_essids: Option<String>,
 }
-
-#[derive(Debug, Deserialize)]
-pub enum Security {
-    Open,
-    WEP,
-    WPA,
-    WPA2,
-    WPA3,
-}
