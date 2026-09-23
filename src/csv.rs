@@ -4,6 +4,9 @@ use std::{fs::File, io::Seek}
 use std::io::{BufReader, Read};
 use std::path::Path;
 
+use csv;
+use serde::Deserialize;
+
 use crate::records::{ApRecord, StationRecord};
 
 fn records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
