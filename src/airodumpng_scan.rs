@@ -9,6 +9,6 @@ fn wirte_scan_result(path: &Path) {
         .arg("csv")
         .arg("-w")
         .arg(path)
-        .output()
+        .spawn()
         .expect("Failed to start airodump-ng");
 }
