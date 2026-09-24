@@ -18,7 +18,6 @@ pub fn records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
     let mut ap_records_reader = csv::ReaderBuilder::new()
         .trim(csv::Trim::All)
         .from_reader(Cursor::new(parts[0].as_bytes()));
-    println!("{:#?}", parts[0]);
     let mut station_records_reader = csv::ReaderBuilder::new()
         .trim(csv::Trim::All)
         .from_reader(Cursor::new(parts[1].as_bytes()));
@@ -27,7 +26,6 @@ pub fn records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
         let ap_record = result.unwrap();
         ap_record_vec.push(ap_record);
     }
-    println!("=============Parsing station record data==============");
     let mut station_records_vec = Vec::with_capacity(5usize);
     for result in station_records_reader.deserialize() {
         let station_record = result.unwrap();
