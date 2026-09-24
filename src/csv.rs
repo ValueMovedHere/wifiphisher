@@ -10,7 +10,7 @@ use crate::records::{ApRecord, StationRecord};
 
 pub fn records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
     let mut file = File::open(path).unwrap();
-    file.seek(std::io::SeekFrom::Start(1u64)).unwrap();
+    file.seek(std::io::SeekFrom::Start(2u64)).unwrap();
     let mut reader = BufReader::new(file);
     let mut file_string = String::new();
     reader.read_to_string(&mut file_string).unwrap();
