@@ -10,6 +10,7 @@ use crate::records::{ApRecord, StationRecord};
 
 pub fn records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
     let mut file = File::open(path).unwrap();
+    // skip first two bytes
     file.seek(std::io::SeekFrom::Start(2u64)).unwrap();
     let mut reader = BufReader::new(file);
     let mut file_string = String::new();
@@ -19,7 +20,7 @@ pub fn records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
         .trim(csv::Trim::All)
         .from_reader(Cursor::new(parts[0].as_bytes()));
     let mut station_records_reader = csv::ReaderBuilder::new()
-        .trim(csv::Trim::All)
+        .trim(csv::Trim::All) // remove leading whitspaces
         .from_reader(Cursor::new(parts[1].as_bytes()));
     let mut ap_record_vec = Vec::with_capacity(5usize);
     for result in ap_records_reader.deserialize() {
