@@ -5,6 +5,6 @@ mod records;
 
 use std::path::Path;
 
-use csv::records;
+use csv::read_records;
 
 fn main() {}

@@ -8,7 +8,7 @@ use csv;
 
 use crate::records::{ApRecord, StationRecord};
 
-pub fn records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
+pub fn read_records(path: &Path) -> (Vec<ApRecord>, Vec<StationRecord>) {
     let mut file = File::open(path).unwrap();
     // skip first two bytes
     file.seek(std::io::SeekFrom::Start(2u64)).unwrap();
