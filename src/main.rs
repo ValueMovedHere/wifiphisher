@@ -1,10 +1,9 @@
+use csv::read_records;
+
 mod airodumpng_scan;
 mod captive_portal;
+mod cli;
 mod csv;
 mod records;
-
-use std::path::Path;
-
-use csv::read_records;
 
 fn main() {}
